@@ -13,9 +13,10 @@ def main():
     members = [member.lower() for member in config['members']]
     present = [member for member in members if member not in absent] if absent else members
     if present:
-        start_with = random.choice(present).capitalize()
-        direction = random.choice(['left', 'right'])
-        print "Start with {} and go {}".format(start_with, direction)
+        random.shuffle(present)
+        print "Today's standup order:"
+        for p in present:
+            print p.capitalize()
     else:
         print "No one is at standup, so it doesn't really matter what the order is..."
 
